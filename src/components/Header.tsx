@@ -7,6 +7,8 @@ const navItems = [
   { label: "소개", href: "#about" },
   { label: "기술", href: "#skills" },
   { label: "경력", href: "#experience" },
+  { label: "기획", href: "#planning" },
+  { label: "AI", href: "#ai" },
   { label: "프로젝트", href: "#projects" },
   { label: "연락", href: "#contact" },
 ];

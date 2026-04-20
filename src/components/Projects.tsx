@@ -163,7 +163,50 @@ const freelanceProjects = [
     tags: ["Next.js 15", "Supabase", "React Hook Form", "Zod"],
     type: "web",
     highlights: ["매칭 시스템", "일정 관리", "리뷰 시스템"],
-    link: "https://bayada.vercel.app/academy",
+    link: "https://bayada-web.vercel.app/",
+  },
+  {
+    title: "Pando",
+    subtitle: "피트니스 CRM 플랫폼",
+    description: "헬스장 통합 관리 CRM. 어드민 + 트레이너용 모바일 클라이언트로 구성",
+    tags: ["Next.js", "Prisma", "Supabase", "FullCalendar"],
+    type: "fullstack",
+    highlights: ["어드민 + 모바일 클라이언트 분리", "스케줄/회원/매출 관리", "데이터 Import/Export"],
+    link: "https://admin-pando.vercel.app/",
+  },
+  {
+    title: "보령항공여행사",
+    subtitle: "여행사 공식 웹사이트",
+    description: "Turbo 모노레포 + Prisma + Playwright E2E 테스트 환경 구축",
+    tags: ["Next.js", "Turbo", "Prisma", "Playwright"],
+    type: "web",
+    highlights: ["Turbo 모노레포 구성", "Prisma DB 모델링", "Playwright E2E"],
+    link: "https://www.boryoung.co.kr/",
+  },
+  {
+    title: "카영",
+    subtitle: "다이렉트 보험 플랫폼",
+    description: "다이렉트 보험 서비스 플랫폼. 랜딩 + 어드민 + 딜러용 클라이언트 3분할 구성",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    type: "fullstack",
+    highlights: ["랜딩/어드민/딜러 3분할", "보험 견적 시스템", "딜러 관리"],
+    link: "https://landing-phi-smoky.vercel.app/",
+  },
+  {
+    title: "Auth-Onboarding",
+    subtitle: "모듈형 인증 라이브러리",
+    description: "재사용 가능한 인증/온보딩 시스템 라이브러리. 3계층 아키텍처 + SMS Factory 패턴",
+    tags: ["TypeScript", "Next.js", "JWT", "SMS"],
+    type: "library",
+    highlights: ["3계층 아키텍처", "SMS Factory 패턴", "모듈형 재사용 설계"],
+  },
+  {
+    title: "Instagram 카드뉴스 생성기",
+    subtitle: "AI 콘텐츠 자동화",
+    description: "8가지 템플릿 스타일, Puppeteer HTML→PNG 변환, AI 에이전트 기반 자동 콘텐츠 생성",
+    tags: ["Node.js", "Puppeteer", "AI Agent", "TypeScript"],
+    type: "fullstack",
+    highlights: ["8가지 템플릿 스타일", "HTML→PNG 변환", "AI 자동 콘텐츠"],
   },
 ];
 
@@ -323,21 +366,37 @@ const companyColors = {
   "룩인사이트": "border-orange-500",
 };
 
+const companyCardBorder = {
+  "애드락애드버테인먼트": "border-l-blue-500",
+  "아이비씨티": "border-l-purple-500",
+  "방배동밸리": "border-l-green-500",
+  "디어플로리스트": "border-l-pink-500",
+  "룩인사이트": "border-l-orange-500",
+};
+
 export default function Projects() {
   return (
     <section id="projects" className="py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+            Selected Work
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">프로젝트</h2>
           <p className="text-gray-600">정규, 외주, 개인 프로젝트 모음</p>
         </div>
 
         {/* Company Projects by Company */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
-            <Building2 size={20} className="text-blue-600" />
-            회사 프로젝트
-          </h3>
+          <div className="mb-8">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-2">
+              In-House
+            </p>
+            <h3 className="text-xl font-bold flex items-center gap-2">
+              <Building2 size={20} className="text-blue-600" />
+              회사 프로젝트
+            </h3>
+          </div>
 
           {Object.entries(projectsByCompany).map(([company, projects]) => (
             <div key={company} className="mb-12">
@@ -348,15 +407,19 @@ export default function Projects() {
                 {projects.map((project, index) => {
                   const Icon = typeIcons[project.type as keyof typeof typeIcons];
                   const colorClass = typeColors[project.type as keyof typeof typeColors];
+                  const cardBorder = companyCardBorder[company as keyof typeof companyCardBorder];
 
                   return (
                     <div
                       key={index}
-                      className={`group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover-card ${
+                      className={`group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-l-4 ${cardBorder} hover-card relative ${
                         project.featured ? "ring-2 ring-blue-100" : ""
                       }`}
                     >
-                      <div className="flex items-center gap-3 mb-3">
+                      <span className="absolute top-3 right-3 px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-100 text-[10px] font-semibold tracking-wider rounded">
+                        회사
+                      </span>
+                      <div className="flex items-center gap-3 mb-3 pr-12">
                         <div className={`p-2 rounded-lg ${colorClass}`}>
                           <Icon size={18} />
                         </div>
@@ -417,10 +480,15 @@ export default function Projects() {
 
         {/* Freelance Projects */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
-            <Users size={20} className="text-purple-600" />
-            외주 프로젝트
-          </h3>
+          <div className="mb-8">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-purple-600 mb-2">
+              Freelance
+            </p>
+            <h3 className="text-xl font-bold flex items-center gap-2">
+              <Users size={20} className="text-purple-600" />
+              외주 프로젝트
+            </h3>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {freelanceProjects.map((project, index) => {
               const Icon = typeIcons[project.type as keyof typeof typeIcons];
@@ -429,9 +497,12 @@ export default function Projects() {
               return (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover-card"
+                  className="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-l-4 border-l-purple-500 hover-card relative"
                 >
-                  <div className="flex items-center gap-3 mb-4">
+                  <span className="absolute top-3 right-3 px-2 py-0.5 bg-purple-50 text-purple-700 border border-purple-100 text-[10px] font-semibold tracking-wider rounded">
+                    외주
+                  </span>
+                  <div className="flex items-center gap-3 mb-4 pr-12">
                     <div className={`p-2 rounded-lg ${colorClass}`}>
                       <Icon size={18} />
                     </div>
@@ -481,19 +552,27 @@ export default function Projects() {
 
         {/* Personal Projects */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
-            <Github size={20} className="text-orange-600" />
-            개인 프로젝트
-          </h3>
+          <div className="mb-8">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-orange-600 mb-2">
+              Side Projects
+            </p>
+            <h3 className="text-xl font-bold flex items-center gap-2">
+              <Github size={20} className="text-orange-600" />
+              개인 프로젝트
+            </h3>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {personalProjects.map((project, index) => (
               <div
                 key={index}
-                className={`group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover-card ${
+                className={`group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-l-4 border-l-orange-500 hover-card relative ${
                   project.featured ? "ring-2 ring-orange-100" : ""
                 }`}
               >
-                <div className="flex items-center gap-3 mb-4">
+                <span className="absolute top-3 right-3 px-2 py-0.5 bg-orange-50 text-orange-700 border border-orange-100 text-[10px] font-semibold tracking-wider rounded">
+                  개인
+                </span>
+                <div className="flex items-center gap-3 mb-4 pr-12">
                   <div className="p-2 rounded-lg bg-orange-50 text-orange-600">
                     <Github size={18} />
                   </div>
@@ -547,10 +626,15 @@ export default function Projects() {
 
         {/* Portfolio Works */}
         <div>
-          <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
-            <Globe size={20} className="text-gray-600" />
-            포트폴리오 작업물
-          </h3>
+          <div className="mb-8">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray-500 mb-2">
+              More Works
+            </p>
+            <h3 className="text-xl font-bold flex items-center gap-2">
+              <Globe size={20} className="text-gray-600" />
+              포트폴리오 작업물
+            </h3>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {portfolioWorks.map((work, index) => (
               <a

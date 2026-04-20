@@ -76,80 +76,71 @@ export default function Experience() {
     <section id="experience" className="py-24 bg-gray-50/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+            Career Timeline
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">경력</h2>
           <p className="text-gray-600">개발자로서의 성장 여정</p>
         </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-purple-600 to-gray-200" />
+        <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
+          {experiences.map((exp, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-2 md:gap-8 py-8 transition-colors hover:bg-white/60"
+            >
+              {/* Period column */}
+              <div className="flex md:flex-col items-start gap-2 md:gap-1.5 pt-1">
+                <div className="flex items-center gap-1.5 text-sm text-gray-500 font-medium">
+                  <Calendar size={14} className="text-blue-600" />
+                  <span>{exp.period}</span>
+                </div>
+                {exp.current && (
+                  <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-medium rounded-full w-fit">
+                    현재
+                  </span>
+                )}
+              </div>
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative flex flex-col md:flex-row gap-8 ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-white border-4 border-blue-600 z-10" />
+              {/* Content column */}
+              <div>
+                <h3 className="font-bold text-xl tracking-tight mb-1">
+                  {exp.company}
+                </h3>
+                <p className="text-blue-600 text-sm font-medium mb-3">
+                  {exp.position}
+                </p>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  {exp.description}
+                </p>
 
-                {/* Content */}
-                <div className={`flex-1 ml-8 md:ml-0 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
-                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover-card">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-bold text-lg">{exp.company}</h3>
-                          {exp.current && (
-                            <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">
-                              현재
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-blue-600 font-medium">{exp.position}</p>
-                      </div>
-                      <div className="flex items-center gap-1 text-gray-500 text-sm">
-                        <Calendar size={14} />
-                        <span>{exp.period}</span>
-                      </div>
+                <div className="space-y-2 mb-4">
+                  {exp.projects.map((project, pIndex) => (
+                    <div
+                      key={pIndex}
+                      className="flex items-start gap-2 text-sm text-gray-600"
+                    >
+                      <Briefcase size={14} className="mt-1 flex-shrink-0 text-gray-400" />
+                      <span>{project}</span>
                     </div>
-
-                    <p className="text-gray-600 mb-4">{exp.description}</p>
-
-                    <div className="space-y-2 mb-4">
-                      {exp.projects.map((project, pIndex) => (
-                        <div
-                          key={pIndex}
-                          className="flex items-start gap-2 text-sm text-gray-500"
-                        >
-                          <Briefcase size={14} className="mt-0.5 flex-shrink-0" />
-                          <span>{project}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {exp.techStack && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {exp.techStack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  ))}
                 </div>
 
-                {/* Spacer for alternating layout */}
-                <div className="hidden md:block flex-1" />
+                {exp.techStack && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {exp.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-100 rounded text-xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

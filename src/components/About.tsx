@@ -64,6 +64,9 @@ export default function About() {
       <section id="about" className="py-24 bg-gray-50/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+              About Me
+            </p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">소개</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               코드를 통해 최고의 사용자 경험을 전달합니다
@@ -116,6 +119,9 @@ export default function About() {
       <section id="skills" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+              Tech Stack
+            </p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">기술 스택</h2>
             <p className="text-gray-600">사용하는 기술들</p>
           </div>
