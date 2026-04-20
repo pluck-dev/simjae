@@ -19,11 +19,11 @@ export default function Contact() {
             </p>
 
             <a
-              href="mailto:space.pluck@gmail.com"
+              href="mailto:hello@pluck.co.kr"
               className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/25"
             >
               <Mail size={20} />
-              space.pluck@gmail.com
+              hello@pluck.co.kr
             </a>
           </div>
 

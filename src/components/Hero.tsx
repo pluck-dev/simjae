@@ -114,7 +114,7 @@ export default function Hero() {
       {floatingIcons.map((item, index) => (
         <motion.div
           key={index}
-          className="absolute text-3xl select-none pointer-events-none"
+          className="absolute text-3xl select-none pointer-events-none hidden md:block"
           style={{ left: item.x, top: item.y }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{
@@ -166,13 +166,13 @@ export default function Hero() {
 
           {/* Name */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-[1.2] md:leading-tight px-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             안녕하세요,{" "}
-            <span className="relative">
+            <span className="relative inline-block">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 심재형
               </span>
@@ -183,7 +183,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.8 }}
               />
             </span>
-            입니다
+            <span className="whitespace-nowrap">입니다</span>
           </motion.h1>
 
           {/* Typing effect */}
@@ -286,7 +286,7 @@ export default function Hero() {
             <Github size={20} />
           </motion.a>
           <motion.a
-            href="mailto:space.pluck@gmail.com"
+            href="mailto:hello@pluck.co.kr"
             className="p-3 rounded-full bg-white shadow-sm border border-gray-100 text-gray-600 hover:text-white hover:bg-blue-600 transition-all duration-300"
             whileHover={{ scale: 1.1, rotate: -5 }}
             whileTap={{ scale: 0.95 }}
