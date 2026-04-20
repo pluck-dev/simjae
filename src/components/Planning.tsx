@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, Briefcase, Building } from "lucide-react";
+import { FileText, Workflow, Building } from "lucide-react";
 
 const planningCards = [
   {
@@ -18,19 +18,19 @@ const planningCards = [
     tags: ["Obsidian", "Templater", "21개 템플릿"],
   },
   {
-    label: "실전 사례",
-    icon: Briefcase,
+    label: "워크플로우",
+    icon: Workflow,
     accent: "green",
-    title: "BROJ CRM — 풀 기획 산출물",
+    title: "1인 풀스펙 기획 프로세스",
     description:
-      "피트니스 센터 SaaS CRM 프로젝트 전체 기획을 1인 수행. 비즈니스 목표 설정부터 기술 제약사항 정의까지 모든 의사결정 주도",
+      "클라이언트 미팅에서 시작해 비즈니스 목표 정의, 유저 리서치, 화면설계, 기능명세, API 설계까지 — 외주 프로젝트의 기획 전 과정을 혼자 리드합니다.",
     highlights: [
-      "PRD 1건 (200+ lines, KPI 포함)",
-      "유저 페르소나 4건 · 시나리오 3건",
-      "화면설계서 18건 · 기능명세서 9건",
-      "API 명세서 5건 · 데이터 정의서 5건",
+      "PRD (KPI · 제약사항 · 마일스톤 정의)",
+      "유저 페르소나 · 유저 시나리오 작성",
+      "화면설계서 · 기능명세서 · IA",
+      "API 명세서 · 데이터 정의서 · RBAC",
     ],
-    tags: ["82개 문서", "6개 유저타입", "RBAC 설계"],
+    tags: ["1인 풀기획", "RBAC 설계", "Obsidian 기반"],
   },
   {
     label: "비즈니스",

@@ -81,7 +81,6 @@ const companyProjects = [
     type: "web",
     featured: true,
     highlights: ["클라이언트/관리자 전체 퍼블리싱", "반응형 웹 & 다국어 지원", "드래그앤드롭 상품 진열"],
-    link: "http://116.124.128.246/",
   },
   {
     title: "와인SNS",
@@ -166,12 +165,12 @@ const freelanceProjects = [
     link: "https://bayada-web.vercel.app/",
   },
   {
-    title: "Pando",
-    subtitle: "피트니스 CRM 플랫폼",
-    description: "헬스장 통합 관리 CRM. 어드민 + 트레이너용 모바일 클라이언트로 구성",
+    title: "FitGenie + 스포짐",
+    subtitle: "피트니스 CRM 어드민 + 회원 전용 모바일 앱",
+    description: "헬스장 통합 관리 CRM 'FitGenie' 어드민과 회원 전용 모바일 앱 '스포짐'으로 구성된 피트니스 비즈니스 풀 스택 플랫폼",
     tags: ["Next.js", "Prisma", "Supabase", "FullCalendar"],
     type: "fullstack",
-    highlights: ["어드민 + 모바일 클라이언트 분리", "스케줄/회원/매출 관리", "데이터 Import/Export"],
+    highlights: ["FitGenie 어드민 + 스포짐 모바일 분리", "스케줄/회원/매출 관리", "데이터 Import/Export"],
     link: "https://admin-pando.vercel.app/",
   },
   {
