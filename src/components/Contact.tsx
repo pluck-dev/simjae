@@ -29,7 +29,7 @@ export default function Contact() {
 
           <div className="flex items-center justify-center gap-6 mt-10 pt-8 border-t border-gray-100">
             <a
-              href="https://github.com/spacePluck"
+              href="https://github.com/pluck-dev"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"

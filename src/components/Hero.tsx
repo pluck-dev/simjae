@@ -275,7 +275,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 1 }}
         >
           <motion.a
-            href="https://github.com/spacePluck"
+            href="https://github.com/pluck-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-white shadow-sm border border-gray-100 text-gray-600 hover:text-white hover:bg-gray-900 transition-all duration-300"
