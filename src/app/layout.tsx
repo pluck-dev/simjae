@@ -33,26 +33,17 @@ export const metadata: Metadata = {
   creator: "심재형",
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "심재형 | Fullstack Developer",
-    description: "AI와 함께 만드는 개발자, 심재형입니다. 스타트업 5년차, 기획부터 개발까지 혼자서도 서비스를 만들어내는 풀스택 개발자",
+    title: "PLUCK · 심재형 | 외주 개발 & 서비스 기획",
+    description: "기획부터 배포까지 1인 풀 사이클. PLUCK은 외주 개발과 서비스 기획을 풀스펙으로 리드합니다.",
     url: siteUrl,
-    siteName: "심재형 포트폴리오",
+    siteName: "PLUCK 포트폴리오",
     locale: "ko_KR",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "심재형 - Fullstack Developer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "심재형 | Fullstack Developer",
-    description: "AI와 함께 만드는 개발자, 심재형입니다. Next.js, React, TypeScript 풀스택 개발자",
-    images: ["/og-image.png"],
+    title: "PLUCK · 심재형 | 외주 개발 & 서비스 기획",
+    description: "기획부터 배포까지 1인 풀 사이클. 외주 개발과 서비스 기획을 풀스펙으로 리드합니다.",
   },
   robots: {
     index: true,
