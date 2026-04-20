@@ -50,37 +50,37 @@ const planningCards = [
 
 const accentMap = {
   blue: {
-    border: "border-l-blue-500",
-    text: "text-blue-600",
-    bg: "bg-blue-50",
-    dot: "bg-blue-500",
+    border: "border-l-indigo-400",
+    text: "text-indigo-300",
+    bg: "bg-indigo-500/10 border-indigo-500/20",
+    dot: "bg-indigo-400",
   },
   green: {
-    border: "border-l-green-500",
-    text: "text-green-600",
-    bg: "bg-green-50",
-    dot: "bg-green-500",
+    border: "border-l-emerald-400",
+    text: "text-emerald-300",
+    bg: "bg-emerald-500/10 border-emerald-500/20",
+    dot: "bg-emerald-400",
   },
   purple: {
-    border: "border-l-purple-500",
-    text: "text-purple-600",
-    bg: "bg-purple-50",
-    dot: "bg-purple-500",
+    border: "border-l-purple-400",
+    text: "text-purple-300",
+    bg: "bg-purple-500/10 border-purple-500/20",
+    dot: "bg-purple-400",
   },
 };
 
 export default function Planning() {
   return (
-    <section id="planning" className="py-24 bg-gray-50/50">
+    <section id="planning" className="py-24 bg-[#0a0a0b]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-indigo-300 mb-3">
             Planning &amp; Design
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-50">
             개발자가 기획까지 합니다
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-zinc-400 max-w-2xl mx-auto">
             외주 프로젝트에서 클라이언트 미팅부터 PRD 작성, 화면설계, 기능명세, API 설계까지 전 과정을 1인 리드합니다. Obsidian 기반으로 324개 이상의 기획 문서를 체계적으로 관리합니다.
           </p>
         </div>
@@ -92,25 +92,25 @@ export default function Planning() {
             return (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-l-4 ${a.border} hover-card`}
+                className={`bg-zinc-900/60 backdrop-blur rounded-2xl p-6 border border-zinc-800 border-l-4 ${a.border} hover-card`}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-2 rounded-lg ${a.bg} ${a.text}`}>
+                  <div className={`p-2 rounded-lg border ${a.bg} ${a.text}`}>
                     <Icon size={18} />
                   </div>
                   <p className={`text-xs font-semibold tracking-[0.1em] uppercase ${a.text}`}>
                     {card.label}
                   </p>
                 </div>
-                <h3 className="font-bold text-lg mb-3">{card.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                <h3 className="font-bold text-lg mb-3 text-zinc-100">{card.title}</h3>
+                <p className="text-zinc-400 text-sm mb-4 leading-relaxed">
                   {card.description}
                 </p>
                 <div className="space-y-1.5 mb-4">
                   {card.highlights.map((h, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2 text-xs text-gray-500"
+                      className="flex items-start gap-2 text-xs text-zinc-500"
                     >
                       <span className={`w-1 h-1 rounded-full mt-1.5 flex-shrink-0 ${a.dot}`} />
                       <span>{h}</span>
@@ -121,7 +121,7 @@ export default function Planning() {
                   {card.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs"
+                      className="px-2 py-0.5 bg-zinc-800/80 text-zinc-300 border border-zinc-700 rounded text-xs"
                     >
                       {tag}
                     </span>

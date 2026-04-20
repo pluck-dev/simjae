@@ -63,16 +63,21 @@ const aiWorks = [
 
 export default function AIWorks() {
   return (
-    <section id="ai" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="ai" className="py-24 bg-[#0d0d0f] border-y border-zinc-900 relative overflow-hidden">
+      <div className="absolute inset-0 -z-0 opacity-40">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-cyan-600 mb-3">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-cyan-300 mb-3">
             AI &amp; Automation
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-50">
             AI 에이전트를 직접 설계하고 오케스트레이션합니다
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-zinc-400 max-w-2xl mx-auto">
             Claude Code 기반 스킬/커맨드/에이전트를 직접 설계하고, LLM 파이프라인 오케스트레이터를 구축합니다. 개발 자동화를 넘어 콘텐츠 생산, 데이터 분석까지 AI로 확장합니다.
           </p>
         </div>
@@ -83,24 +88,24 @@ export default function AIWorks() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-t-4 border-t-cyan-500 hover-card"
+                className="bg-zinc-900/60 backdrop-blur rounded-2xl p-6 border border-zinc-800 border-t-4 border-t-cyan-400/80 hover-card"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-cyan-50 text-cyan-600">
+                    <div className="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
                       <Icon size={20} />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg">{work.title}</h3>
-                      <p className="text-xs text-gray-500">{work.subtitle}</p>
+                      <h3 className="font-bold text-lg text-zinc-100">{work.title}</h3>
+                      <p className="text-xs text-zinc-500">{work.subtitle}</p>
                     </div>
                   </div>
-                  <span className="px-2 py-0.5 bg-cyan-50 text-cyan-700 border border-cyan-100 text-[10px] font-semibold tracking-wider rounded">
+                  <span className="px-2 py-0.5 bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 text-[10px] font-semibold tracking-wider rounded">
                     {work.type}
                   </span>
                 </div>
 
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                <p className="text-zinc-400 text-sm mb-4 leading-relaxed">
                   {work.description}
                 </p>
 
@@ -108,9 +113,9 @@ export default function AIWorks() {
                   {work.highlights.map((h, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2 text-xs text-gray-500"
+                      className="flex items-start gap-2 text-xs text-zinc-500"
                     >
-                      <span className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0 bg-cyan-500" />
+                      <span className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0 bg-cyan-400" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -120,7 +125,7 @@ export default function AIWorks() {
                   {work.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 bg-cyan-50/60 text-cyan-700 rounded text-xs"
+                      className="px-2 py-0.5 bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 rounded text-xs"
                     >
                       {tag}
                     </span>

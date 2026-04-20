@@ -342,10 +342,10 @@ const typeIcons = {
 };
 
 const typeColors = {
-  web: "bg-blue-50 text-blue-600",
-  mobile: "bg-purple-50 text-purple-600",
-  fullstack: "bg-green-50 text-green-600",
-  library: "bg-orange-50 text-orange-600",
+  web: "bg-indigo-500/10 text-indigo-300 border border-indigo-500/20",
+  mobile: "bg-purple-500/10 text-purple-300 border border-purple-500/20",
+  fullstack: "bg-emerald-500/10 text-emerald-300 border border-emerald-500/20",
+  library: "bg-orange-500/10 text-orange-300 border border-orange-500/20",
 };
 
 // 회사별로 프로젝트 그룹화
@@ -358,48 +358,48 @@ const projectsByCompany = {
 };
 
 const companyColors = {
-  "애드락애드버테인먼트": "border-blue-500",
-  "아이비씨티": "border-purple-500",
-  "방배동밸리": "border-green-500",
-  "디어플로리스트": "border-pink-500",
-  "룩인사이트": "border-orange-500",
+  "애드락애드버테인먼트": "border-indigo-400",
+  "아이비씨티": "border-purple-400",
+  "방배동밸리": "border-emerald-400",
+  "디어플로리스트": "border-pink-400",
+  "룩인사이트": "border-orange-400",
 };
 
 const companyCardBorder = {
-  "애드락애드버테인먼트": "border-l-blue-500",
-  "아이비씨티": "border-l-purple-500",
-  "방배동밸리": "border-l-green-500",
-  "디어플로리스트": "border-l-pink-500",
-  "룩인사이트": "border-l-orange-500",
+  "애드락애드버테인먼트": "border-l-indigo-400",
+  "아이비씨티": "border-l-purple-400",
+  "방배동밸리": "border-l-emerald-400",
+  "디어플로리스트": "border-l-pink-400",
+  "룩인사이트": "border-l-orange-400",
 };
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24 bg-[#0a0a0b]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-indigo-300 mb-3">
             Selected Work
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">프로젝트</h2>
-          <p className="text-gray-600">정규, 외주, 개인 프로젝트 모음</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-50">프로젝트</h2>
+          <p className="text-zinc-400">정규, 외주, 개인 프로젝트 모음</p>
         </div>
 
         {/* Company Projects by Company */}
         <div className="mb-16">
           <div className="mb-8">
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-2">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-indigo-300 mb-2">
               In-House
             </p>
-            <h3 className="text-xl font-bold flex items-center gap-2">
-              <Building2 size={20} className="text-blue-600" />
+            <h3 className="text-xl font-bold flex items-center gap-2 text-zinc-100">
+              <Building2 size={20} className="text-indigo-300" />
               회사 프로젝트
             </h3>
           </div>
 
           {Object.entries(projectsByCompany).map(([company, projects]) => (
             <div key={company} className="mb-12">
-              <h4 className={`text-lg font-semibold mb-6 pl-4 border-l-4 ${companyColors[company as keyof typeof companyColors]}`}>
+              <h4 className={`text-lg font-semibold mb-6 pl-4 border-l-4 text-zinc-100 ${companyColors[company as keyof typeof companyColors]}`}>
                 {company}
               </h4>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -411,11 +411,11 @@ export default function Projects() {
                   return (
                     <div
                       key={index}
-                      className={`group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-l-4 ${cardBorder} hover-card relative ${
-                        project.featured ? "ring-2 ring-blue-100" : ""
+                      className={`group bg-zinc-900/60 backdrop-blur rounded-2xl p-6 border border-zinc-800 border-l-4 ${cardBorder} hover-card relative ${
+                        project.featured ? "ring-1 ring-indigo-500/30" : ""
                       }`}
                     >
-                      <span className="absolute top-3 right-3 px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-100 text-[10px] font-semibold tracking-wider rounded">
+                      <span className="absolute top-3 right-3 px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 text-[10px] font-semibold tracking-wider rounded">
                         회사
                       </span>
                       <div className="flex items-center gap-3 mb-3 pr-12">
@@ -424,24 +424,24 @@ export default function Projects() {
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <h4 className="font-bold">{project.title}</h4>
+                            <h4 className="font-bold text-zinc-100">{project.title}</h4>
                             {project.featured && (
-                              <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">
+                              <span className="px-2 py-0.5 bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 text-xs font-medium rounded-full">
                                 주요
                               </span>
                             )}
                           </div>
-                          <p className="text-xs text-gray-500">{project.subtitle}</p>
+                          <p className="text-xs text-zinc-500">{project.subtitle}</p>
                         </div>
                       </div>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                      <p className="text-zinc-400 text-sm mb-4 line-clamp-2">
                         {project.description}
                       </p>
                       {project.highlights && (
                         <div className="space-y-1 mb-4">
                           {project.highlights.slice(0, 2).map((h, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs text-gray-500">
-                              <span className="w-1 h-1 bg-blue-600 rounded-full" />
+                            <div key={i} className="flex items-center gap-2 text-xs text-zinc-500">
+                              <span className="w-1 h-1 bg-indigo-400 rounded-full" />
                               {h}
                             </div>
                           ))}
@@ -452,7 +452,7 @@ export default function Projects() {
                           {project.tags.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-0.5 bg-gray-100 text-gray-500 rounded text-xs"
+                              className="px-2 py-0.5 bg-zinc-800/80 text-zinc-300 border border-zinc-700 rounded text-xs"
                             >
                               {tag}
                             </span>
@@ -463,9 +463,9 @@ export default function Projects() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                            className="p-1.5 rounded-lg hover:bg-zinc-800/60 transition-colors"
                           >
-                            <ExternalLink size={16} className="text-gray-400 hover:text-blue-600" />
+                            <ExternalLink size={16} className="text-zinc-500 hover:text-indigo-300" />
                           </a>
                         )}
                       </div>
@@ -480,11 +480,11 @@ export default function Projects() {
         {/* Freelance Projects */}
         <div className="mb-16">
           <div className="mb-8">
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-purple-600 mb-2">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-purple-300 mb-2">
               Freelance
             </p>
-            <h3 className="text-xl font-bold flex items-center gap-2">
-              <Users size={20} className="text-purple-600" />
+            <h3 className="text-xl font-bold flex items-center gap-2 text-zinc-100">
+              <Users size={20} className="text-purple-300" />
               외주 프로젝트
             </h3>
           </div>
@@ -496,9 +496,9 @@ export default function Projects() {
               return (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-l-4 border-l-purple-500 hover-card relative"
+                  className="group bg-zinc-900/60 backdrop-blur rounded-2xl p-6 border border-zinc-800 border-l-4 border-l-purple-400 hover-card relative"
                 >
-                  <span className="absolute top-3 right-3 px-2 py-0.5 bg-purple-50 text-purple-700 border border-purple-100 text-[10px] font-semibold tracking-wider rounded">
+                  <span className="absolute top-3 right-3 px-2 py-0.5 bg-purple-500/10 text-purple-300 border border-purple-500/30 text-[10px] font-semibold tracking-wider rounded">
                     외주
                   </span>
                   <div className="flex items-center gap-3 mb-4 pr-12">
@@ -506,17 +506,17 @@ export default function Projects() {
                       <Icon size={18} />
                     </div>
                     <div>
-                      <h4 className="font-bold">{project.title}</h4>
-                      <p className="text-xs text-gray-500">{project.subtitle}</p>
+                      <h4 className="font-bold text-zinc-100">{project.title}</h4>
+                      <p className="text-xs text-zinc-500">{project.subtitle}</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                  <p className="text-zinc-400 text-sm mb-4 line-clamp-2">
                     {project.description}
                   </p>
                   <div className="space-y-1 mb-4">
                     {project.highlights.slice(0, 2).map((h, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-gray-500">
-                        <span className="w-1 h-1 bg-purple-600 rounded-full" />
+                      <div key={i} className="flex items-center gap-2 text-xs text-zinc-500">
+                        <span className="w-1 h-1 bg-purple-400 rounded-full" />
                         {h}
                       </div>
                     ))}
@@ -526,7 +526,7 @@ export default function Projects() {
                       {project.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 bg-purple-50 text-purple-600 rounded text-xs"
+                          className="px-2 py-0.5 bg-purple-500/10 text-purple-300 border border-purple-500/20 rounded text-xs"
                         >
                           {tag}
                         </span>
@@ -537,9 +537,9 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-zinc-800/60 transition-colors"
                       >
-                        <ExternalLink size={16} className="text-gray-400 hover:text-purple-600" />
+                        <ExternalLink size={16} className="text-zinc-500 hover:text-purple-300" />
                       </a>
                     )}
                   </div>
@@ -552,11 +552,11 @@ export default function Projects() {
         {/* Personal Projects */}
         <div className="mb-16">
           <div className="mb-8">
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-orange-600 mb-2">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-orange-300 mb-2">
               Side Projects
             </p>
-            <h3 className="text-xl font-bold flex items-center gap-2">
-              <Github size={20} className="text-orange-600" />
+            <h3 className="text-xl font-bold flex items-center gap-2 text-zinc-100">
+              <Github size={20} className="text-orange-300" />
               개인 프로젝트
             </h3>
           </div>
@@ -564,34 +564,34 @@ export default function Projects() {
             {personalProjects.map((project, index) => (
               <div
                 key={index}
-                className={`group bg-white rounded-2xl p-6 shadow-sm border border-gray-100 border-l-4 border-l-orange-500 hover-card relative ${
-                  project.featured ? "ring-2 ring-orange-100" : ""
+                className={`group bg-zinc-900/60 backdrop-blur rounded-2xl p-6 border border-zinc-800 border-l-4 border-l-orange-400 hover-card relative ${
+                  project.featured ? "ring-1 ring-orange-500/30" : ""
                 }`}
               >
-                <span className="absolute top-3 right-3 px-2 py-0.5 bg-orange-50 text-orange-700 border border-orange-100 text-[10px] font-semibold tracking-wider rounded">
+                <span className="absolute top-3 right-3 px-2 py-0.5 bg-orange-500/10 text-orange-300 border border-orange-500/30 text-[10px] font-semibold tracking-wider rounded">
                   개인
                 </span>
                 <div className="flex items-center gap-3 mb-4 pr-12">
-                  <div className="p-2 rounded-lg bg-orange-50 text-orange-600">
+                  <div className="p-2 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-300">
                     <Github size={18} />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h4 className="font-bold">{project.title}</h4>
+                      <h4 className="font-bold text-zinc-100">{project.title}</h4>
                       {project.featured && (
-                        <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">
+                        <span className="px-2 py-0.5 bg-orange-500/15 text-orange-300 border border-orange-500/30 text-xs font-medium rounded-full">
                           주요
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-gray-500">{project.subtitle}</p>
+                    <p className="text-xs text-zinc-500">{project.subtitle}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">{project.description}</p>
+                <p className="text-zinc-400 text-sm mb-4">{project.description}</p>
                 <div className="space-y-1 mb-4">
                   {project.highlights.slice(0, 2).map((h, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-gray-500">
-                      <span className="w-1 h-1 bg-orange-600 rounded-full" />
+                    <div key={i} className="flex items-center gap-2 text-xs text-zinc-500">
+                      <span className="w-1 h-1 bg-orange-400 rounded-full" />
                       {h}
                     </div>
                   ))}
@@ -601,7 +601,7 @@ export default function Projects() {
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 bg-orange-50 text-orange-600 rounded text-xs"
+                        className="px-2 py-0.5 bg-orange-500/10 text-orange-300 border border-orange-500/20 rounded text-xs"
                       >
                         {tag}
                       </span>
@@ -612,9 +612,9 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                      className="p-1.5 rounded-lg hover:bg-zinc-800/60 transition-colors"
                     >
-                      <ExternalLink size={16} className="text-gray-400 hover:text-orange-600" />
+                      <ExternalLink size={16} className="text-zinc-500 hover:text-orange-300" />
                     </a>
                   )}
                 </div>
@@ -626,11 +626,11 @@ export default function Projects() {
         {/* Portfolio Works */}
         <div>
           <div className="mb-8">
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray-500 mb-2">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-zinc-500 mb-2">
               More Works
             </p>
-            <h3 className="text-xl font-bold flex items-center gap-2">
-              <Globe size={20} className="text-gray-600" />
+            <h3 className="text-xl font-bold flex items-center gap-2 text-zinc-100">
+              <Globe size={20} className="text-zinc-400" />
               포트폴리오 작업물
             </h3>
           </div>
@@ -641,15 +641,15 @@ export default function Projects() {
                 href={work.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group flex flex-col justify-between"
+                className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-xl hover:border-indigo-500/40 hover:bg-zinc-900/80 transition-colors group flex flex-col justify-between"
               >
                 <div>
-                  <h4 className="font-medium text-sm group-hover:text-blue-600 transition-colors">
+                  <h4 className="font-medium text-sm text-zinc-200 group-hover:text-indigo-300 transition-colors">
                     {work.title}
                   </h4>
-                  <p className="text-xs text-gray-500 mt-1">{work.description}</p>
+                  <p className="text-xs text-zinc-500 mt-1">{work.description}</p>
                 </div>
-                <ExternalLink size={14} className="text-gray-300 group-hover:text-blue-500 mt-2 transition-colors" />
+                <ExternalLink size={14} className="text-zinc-700 group-hover:text-indigo-300 mt-2 transition-colors" />
               </a>
             ))}
           </div>

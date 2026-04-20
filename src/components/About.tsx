@@ -58,32 +58,39 @@ const skills = {
   ],
 };
 
+const skillStyles = {
+  frontend: { dot: "bg-indigo-400", chip: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20 hover:border-indigo-400/40" },
+  backend: { dot: "bg-emerald-400", chip: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20 hover:border-emerald-400/40" },
+  mobile: { dot: "bg-purple-400", chip: "bg-purple-500/10 text-purple-300 border-purple-500/20 hover:border-purple-400/40" },
+  tools: { dot: "bg-orange-400", chip: "bg-orange-500/10 text-orange-300 border-orange-500/20 hover:border-orange-400/40" },
+};
+
 export default function About() {
   return (
     <>
-      <section id="about" className="py-24 bg-gray-50/50">
+      <section id="about" className="py-24 bg-[#0d0d0f] border-y border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-indigo-300 mb-3">
               About Me
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">소개</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-50">소개</h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">
               코드를 통해 최고의 사용자 경험을 전달합니다
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-6 section-title">About Me</h3>
-              <p className="text-lg text-blue-600 font-medium mb-4">
-                "AI와 함께 만드는 개발자, 심재형입니다."
+              <h3 className="text-2xl font-bold mb-6 section-title text-zinc-50">About Me</h3>
+              <p className="text-lg text-indigo-300 font-medium mb-4">
+                &ldquo;AI와 함께 만드는 개발자, 심재형입니다.&rdquo;
               </p>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-4 text-zinc-400 leading-relaxed">
                 <p>
                   스타트업 5년차, 5번의 이직을 거치며 기획부터 디자인, 개발, 마케팅까지
                   서비스의 전 과정을 경험했습니다. 월급이 밀리기도 하고, 회사가 망하기도
-                  했지만, 그 과정에서 "혼자서도 서비스를 만들어낼 수 있는 개발자"로
+                  했지만, 그 과정에서 &ldquo;혼자서도 서비스를 만들어낼 수 있는 개발자&rdquo;로
                   성장했습니다.
                 </p>
                 <p>
@@ -98,15 +105,15 @@ export default function About() {
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover-card"
+                  className="p-6 bg-zinc-900/60 backdrop-blur rounded-2xl border border-zinc-800 hover-card"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-50 rounded-xl text-blue-600">
+                    <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-300">
                       <item.icon size={24} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-1">{item.title}</h4>
-                      <p className="text-gray-600 text-sm">{item.description}</p>
+                      <h4 className="font-semibold text-lg mb-1 text-zinc-100">{item.title}</h4>
+                      <p className="text-zinc-400 text-sm">{item.description}</p>
                     </div>
                   </div>
                 </div>
@@ -116,84 +123,44 @@ export default function About() {
         </div>
       </section>
 
-      <section id="skills" className="py-24">
+      <section id="skills" className="py-24 bg-[#0a0a0b]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-indigo-300 mb-3">
               Tech Stack
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">기술 스택</h2>
-            <p className="text-gray-600">사용하는 기술들</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-50">기술 스택</h2>
+            <p className="text-zinc-400">사용하는 기술들</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full" />
-                Frontend
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.frontend.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-600 rounded-full" />
-                Backend
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.backend.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-green-50 text-green-700 rounded-full text-sm font-medium hover:bg-green-100 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg flex items-center gap-2">
-                <span className="w-2 h-2 bg-purple-600 rounded-full" />
-                Mobile
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.mobile.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-100 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-semibold text-lg flex items-center gap-2">
-                <span className="w-2 h-2 bg-orange-600 rounded-full" />
-                Tools
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.tools.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-orange-50 text-orange-700 rounded-full text-sm font-medium hover:bg-orange-100 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+            {(Object.keys(skills) as Array<keyof typeof skills>).map((category) => {
+              const styles = skillStyles[category];
+              const labelMap: Record<string, string> = {
+                frontend: "Frontend",
+                backend: "Backend",
+                mobile: "Mobile",
+                tools: "Tools",
+              };
+              return (
+                <div key={category} className="space-y-4">
+                  <h3 className="font-semibold text-lg flex items-center gap-2 text-zinc-100">
+                    <span className={`w-2 h-2 rounded-full ${styles.dot}`} />
+                    {labelMap[category]}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skills[category].map((skill) => (
+                      <span
+                        key={skill}
+                        className={`px-3 py-1.5 border rounded-full text-sm font-medium transition-colors ${styles.chip}`}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

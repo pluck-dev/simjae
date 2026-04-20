@@ -73,30 +73,30 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 bg-gray-50/50">
+    <section id="experience" className="py-24 bg-[#0d0d0f] border-y border-zinc-900">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-blue-600 mb-3">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-indigo-300 mb-3">
             Career Timeline
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">경력</h2>
-          <p className="text-gray-600">개발자로서의 성장 여정</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-50">경력</h2>
+          <p className="text-zinc-400">개발자로서의 성장 여정</p>
         </div>
 
-        <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
+        <div className="divide-y divide-zinc-800 border-t border-b border-zinc-800">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-2 md:gap-8 py-8 transition-colors hover:bg-white/60"
+              className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-2 md:gap-8 py-8 transition-colors hover:bg-zinc-900/40"
             >
               {/* Period column */}
               <div className="flex md:flex-col items-start gap-2 md:gap-1.5 pt-1">
-                <div className="flex items-center gap-1.5 text-sm text-gray-500 font-medium">
-                  <Calendar size={14} className="text-blue-600" />
+                <div className="flex items-center gap-1.5 text-sm text-zinc-400 font-medium">
+                  <Calendar size={14} className="text-indigo-300" />
                   <span>{exp.period}</span>
                 </div>
                 {exp.current && (
-                  <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-medium rounded-full w-fit">
+                  <span className="px-2 py-0.5 bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 text-xs font-medium rounded-full w-fit">
                     현재
                   </span>
                 )}
@@ -104,13 +104,13 @@ export default function Experience() {
 
               {/* Content column */}
               <div>
-                <h3 className="font-bold text-xl tracking-tight mb-1">
+                <h3 className="font-bold text-xl tracking-tight mb-1 text-zinc-50">
                   {exp.company}
                 </h3>
-                <p className="text-blue-600 text-sm font-medium mb-3">
+                <p className="text-indigo-300 text-sm font-medium mb-3">
                   {exp.position}
                 </p>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-zinc-400 mb-4 leading-relaxed">
                   {exp.description}
                 </p>
 
@@ -118,9 +118,9 @@ export default function Experience() {
                   {exp.projects.map((project, pIndex) => (
                     <div
                       key={pIndex}
-                      className="flex items-start gap-2 text-sm text-gray-600"
+                      className="flex items-start gap-2 text-sm text-zinc-400"
                     >
-                      <Briefcase size={14} className="mt-1 flex-shrink-0 text-gray-400" />
+                      <Briefcase size={14} className="mt-1 flex-shrink-0 text-zinc-600" />
                       <span>{project}</span>
                     </div>
                   ))}
@@ -131,7 +131,7 @@ export default function Experience() {
                     {exp.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-100 rounded text-xs"
+                        className="px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded text-xs"
                       >
                         {tech}
                       </span>

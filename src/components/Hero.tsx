@@ -79,33 +79,34 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#0a0a0b]"
     >
-      {/* Animated gradient background */}
+      {/* Grid pattern background */}
+      <div className="absolute inset-0 -z-10 bg-grid bg-grid-mask" />
+
+      {/* Animated glow orbs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-50"
+          className="absolute top-20 left-10 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl"
           style={{ x: backgroundX, y: backgroundY }}
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.5, 0.7, 0.5],
+            opacity: [0.4, 0.6, 0.4],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-50"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
           style={{ x: useTransform(smoothX, (v) => v * 1.5), y: useTransform(smoothY, (v) => v * 1.5) }}
           animate={{
             scale: [1, 1.3, 1],
-            opacity: [0.5, 0.6, 0.5],
+            opacity: [0.4, 0.55, 0.4],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-3xl opacity-30"
-          animate={{
-            rotate: 360,
-          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-indigo-500/10 to-pink-500/10 rounded-full blur-3xl"
+          animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
       </div>
@@ -133,13 +134,6 @@ export default function Hero() {
         </motion.div>
       ))}
 
-      {/* Grid pattern */}
-      <div className="absolute inset-0 -z-10 opacity-[0.02]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
-        }}
-      />
-
       <div className="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
         {/* Main content with staggered animation */}
         <motion.div
@@ -154,7 +148,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/10 border border-indigo-400/20 text-indigo-300 rounded-full text-sm font-medium">
               <motion.span
                 className="w-2 h-2 bg-green-500 rounded-full"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -166,18 +160,18 @@ export default function Hero() {
 
           {/* Name */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-[1.2] md:leading-tight px-2"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-[1.2] md:leading-tight px-2 text-zinc-50"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             안녕하세요,{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 심재형
               </span>
               <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-3 bg-blue-200/50 -z-10 rounded"
+                className="absolute -bottom-2 left-0 right-0 h-3 bg-indigo-500/30 -z-10 rounded"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -193,10 +187,10 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <p className="text-xl md:text-2xl text-gray-600">
-              <span className="text-blue-600 font-semibold">{displayText}</span>
+            <p className="text-xl md:text-2xl text-zinc-400">
+              <span className="text-indigo-300 font-semibold">{displayText}</span>
               <motion.span
-                className="inline-block w-0.5 h-6 bg-blue-600 ml-1"
+                className="inline-block w-0.5 h-6 bg-indigo-400 ml-1"
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
               />
@@ -205,7 +199,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-lg text-gray-500 mb-10 max-w-xl mx-auto leading-relaxed"
+            className="text-lg text-zinc-400 mb-10 max-w-xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -223,7 +217,7 @@ export default function Hero() {
             {techStack.map((tech, index) => (
               <motion.span
                 key={tech.name}
-                className="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all cursor-default"
+                className="px-4 py-2 bg-zinc-900/70 backdrop-blur rounded-full text-sm font-medium text-zinc-200 border border-zinc-800 hover:border-indigo-500/40 hover:-translate-y-1 transition-all cursor-default"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
@@ -245,13 +239,13 @@ export default function Hero() {
         >
           <motion.a
             href="#projects"
-            className="group px-8 py-4 bg-blue-600 text-white rounded-full font-medium relative overflow-hidden"
+            className="group px-8 py-4 bg-indigo-500 text-white rounded-full font-medium relative overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.35)] hover:shadow-[0_0_40px_rgba(99,102,241,0.55)] transition-shadow"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <span className="relative z-10">프로젝트 보기</span>
             <motion.div
-              className="absolute inset-0 bg-blue-700"
+              className="absolute inset-0 bg-indigo-400"
               initial={{ x: "-100%" }}
               whileHover={{ x: 0 }}
               transition={{ duration: 0.3 }}
@@ -259,7 +253,7 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="#contact"
-            className="px-8 py-4 border-2 border-gray-200 rounded-full font-medium hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
+            className="px-8 py-4 border border-zinc-700 text-zinc-300 rounded-full font-medium hover:border-indigo-400 hover:text-indigo-300 hover:bg-white/[0.02] transition-all duration-300"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -278,7 +272,7 @@ export default function Hero() {
             href="https://github.com/pluck-dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white shadow-sm border border-gray-100 text-gray-600 hover:text-white hover:bg-gray-900 transition-all duration-300"
+            className="p-3 rounded-full bg-zinc-900/60 backdrop-blur border border-zinc-800 text-zinc-400 hover:text-white hover:border-indigo-400 transition-all duration-300"
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
             aria-label="GitHub"
@@ -287,7 +281,7 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="mailto:hello@pluck.co.kr"
-            className="p-3 rounded-full bg-white shadow-sm border border-gray-100 text-gray-600 hover:text-white hover:bg-blue-600 transition-all duration-300"
+            className="p-3 rounded-full bg-zinc-900/60 backdrop-blur border border-zinc-800 text-zinc-400 hover:text-white hover:border-indigo-400 transition-all duration-300"
             whileHover={{ scale: 1.1, rotate: -5 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Email"
@@ -308,10 +302,10 @@ export default function Hero() {
         >
           <a
             href="#about"
-            className="flex flex-col items-center gap-2 text-gray-400 hover:text-blue-600 transition-colors"
+            className="flex flex-col items-center gap-2 text-zinc-500 hover:text-indigo-300 transition-colors"
             aria-label="Scroll down"
           >
-            <span className="text-xs font-medium">SCROLL</span>
+            <span className="text-xs font-medium tracking-widest">SCROLL</span>
             <ArrowDown size={20} />
           </a>
         </motion.div>
